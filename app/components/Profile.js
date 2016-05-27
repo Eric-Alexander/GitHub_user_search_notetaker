@@ -30,6 +30,12 @@ var Profile = React.createClass({
   componentWillUnmount(){
     this.unbind('notes');
   },
+  //always try and pass down state from the parent component this next function will update Firebase with a new note
+  handleAddNote(newNote){
+    //we dont want to update the root reference (Firebase itself) so we pass in child and even one level deeper with [notes].length
+    this.ref.child(this.props.params.username).child(this.state.notes.length).set(newNote)
+
+  },
   render (){
     return (
       <div className="row">
@@ -40,7 +46,10 @@ var Profile = React.createClass({
           <Repos username={this.props.params.username} repos={this.state.repos} />
         </div>
         <div className = "col-md-4">
-          <Notes username={this.props.params.username} notes={this.state.notes} />
+          <Notes
+            username={this.props.params.username}
+            notes={this.state.notes}
+            addNote={this.handleAddNote} />
         </div>
       </div>
     )
