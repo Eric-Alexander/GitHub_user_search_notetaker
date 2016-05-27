@@ -4,7 +4,10 @@ var Repos = React.createClass({
 
   render(){
     return (
-    <div> all user reposss</div>
+    <div>
+      <p> Repos of user </p>
+      <p>Repos: {this.props.repos}</p>
+    </div>
     )
   }
 });
