@@ -3,6 +3,11 @@ import React from 'react'
 import NotesList from './NotesList'
 
 var Notes = React.createClass({
+  propTypes: {
+
+    username: React.PropTypes.string.isRequired,
+    notes: React.PropTypes.array.isRequired
+  },
 
   render(){
     console.log('Notes: ', this.props.notes)

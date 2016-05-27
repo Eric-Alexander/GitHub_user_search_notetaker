@@ -26435,6 +26435,13 @@
 
 	var Notes = _react2.default.createClass({
 	  displayName: 'Notes',
+
+	  propTypes: {
+
+	    username: _react2.default.PropTypes.string.isRequired,
+	    notes: _react2.default.PropTypes.array.isRequired
+	  },
+
 	  render: function render() {
 	    console.log('Notes: ', this.props.notes);
 	    return _react2.default.createElement(
@@ -26468,6 +26475,12 @@
 
 	var Repos = _react2.default.createClass({
 	  displayName: 'Repos',
+
+	  propTypes: {
+	    username: _react2.default.PropTypes.string.isRequired,
+	    repos: _react2.default.PropTypes.array.isRequired
+	  },
+
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -26503,6 +26516,12 @@
 
 	var UserProfile = _react2.default.createClass({
 	  displayName: 'UserProfile',
+
+	  propTypes: {
+	    username: _react2.default.PropTypes.string.isRequired,
+	    bio: _react2.default.PropTypes.object.isRequired
+	  },
+
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
