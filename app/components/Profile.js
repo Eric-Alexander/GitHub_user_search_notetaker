@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react'
 import Router from 'react-router'
 import ReactFireMixin from 'reactfire'
@@ -7,15 +9,15 @@ import Notes from './Notes/Notes'
 import Repos from './GitHub/Repos'
 import UserProfile from './GitHub/UserProfile'
 
+import helpers from '../utils/helpers'
+
 var Profile = React.createClass({
   mixins: [ReactFireMixin],
   getInitialState () {
     return {
-      notes: [4,6,5,4],
-      bio: {
-        name: "Eric Kickass"
-      },
-      repos: ['a','b','c']
+      notes: [],
+      bio: {},
+      repos: []
 
     }
 
@@ -25,6 +27,14 @@ var Profile = React.createClass({
     this.ref = new Firebase('https://githubusersearch.firebaseio.com/');
     var childRef = this.ref.child(this.props.params.username);
     this.bindAsArray(childRef, 'notes');
+
+    helpers.getGitHubInfo(this.props.params.username)
+      .then(function(data){
+        this.setState({
+          bio: data.bio,
+          repos: data.repos
+        })
+      }.bind(this))
 
   },
   componentWillUnmount(){
@@ -56,4 +66,4 @@ var Profile = React.createClass({
   }
 })
 
-module.exports = Profile;
+export default Profile;

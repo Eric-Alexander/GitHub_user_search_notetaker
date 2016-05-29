@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react'
 
 var Repos = React.createClass({
@@ -7,13 +9,23 @@ var Repos = React.createClass({
   },
 
   render(){
+    var repos = this.props.repos.map(function(repo, idx){
+      return(
+        <li className="list-group-item" key={idx}>
+          {repo.html_url && <h4><a href={repo.html_url}> {repo.name} </a></h4>}
+          {repo.description && <p> {repo.description}</p>}
+        </li>
+      )
+    });
     return (
     <div>
-      <p> Repos of user </p>
-      <p>Repos: {this.props.repos}</p>
+      <h3> User Repos </h3>
+      <ul className="list-group">
+        {repos}
+      </ul>
     </div>
     )
   }
 });
 
-module.exports = Repos;
+export default Repos;

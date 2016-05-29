@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react'
 
 var NotesList = React.createClass({
@@ -17,4 +19,4 @@ var NotesList = React.createClass({
 
 });
 
-module.exports = NotesList
+export default NotesList;
