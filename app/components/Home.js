@@ -2,15 +2,15 @@
 
 import React from 'react'
 
-var Home = React.createClass({
+class Home extends React.Component{
 
   render(){
     return(
-    <h2 className="text-center">
-    Search by Username
-    </h2>
-  )
+      <h2 className="text-center">
+        Search by Username
+      </h2>
+    )
   }
-});
+}
 
 export default Home;

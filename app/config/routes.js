@@ -8,7 +8,7 @@ import Main from '../components/Main'
 import Home from '../components/Home'
 import Profile from '../components/Profile'
 
-module.exports = (
+export default  (
   <Router history={browserHistory}>
     <Route path="/" component={Main}>
       <Route path="profile/:username" component={Profile} />
