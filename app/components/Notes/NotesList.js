@@ -19,20 +19,33 @@ import React from 'react'
 //
 // });
 //THIS
-class NotesList extends React.Component {
-  render(){
-    //implicit return!! see utils/helpers.js for more detailed notes
-    //also { notes } is destructuring the variable but you MUST assign is a variable type CONST
-    const { notes } = this.props;
-    return (
-      <ul className="list-group">
-        {notes.map((note, index) => (
-          <li className="list-group-item" key={index}>{note}</li>
-        ))}
-      </ul>
-      //Note: when removing the return you must replace {} () ...this tripped me up for a bit
-    )
-  }
+// class NotesList extends React.Component {
+//   render(){
+//     //implicit return!! see utils/helpers.js for more detailed notes
+//     //also { notes } is destructuring the variable but you MUST assign is a variable type CONST
+//     const { notes } = this.props;
+//     return (
+//       <ul className="list-group">
+//         {notes.map((note, index) => (
+//           <li className="list-group-item" key={index}>{note}</li>
+//         ))}
+//       </ul>
+//       //Note: when removing the return you must replace {} () ...this tripped me up for a bit
+//     )
+//   }
+// }
+
+
+//BUT since this is a stateless functional component we will reduce it further:
+
+const NotesList = ({notes}) => {
+  return (
+    <ul className="list-group">
+      {notes.map((note, index) => (
+        <li className="list-group-item" key={index}>{note}</li>
+      ))}
+    </ul>
+  )
 }
 
 export default NotesList;
